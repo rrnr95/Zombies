@@ -10647,7 +10647,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 3/3 Lives
+  m_Text: 15/15 Lives
 --- !u!222 &745839856
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12742,6 +12742,11 @@ PrefabInstance:
       propertyPath: lifeCounter
       value: 
       objectReference: {fileID: 745839853}
+    - target: {fileID: 2856379126130604854, guid: d82e07f7536de36419cb0317a03b9ec9,
+        type: 3}
+      propertyPath: maxHealth
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d82e07f7536de36419cb0317a03b9ec9, type: 3}
 --- !u!1001 &965594457
