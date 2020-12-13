@@ -32,7 +32,6 @@ public class deployZombies : MonoBehaviour {
 
     // Start is called before the first frame update
     public void Start() {
-		//respawnTime = zombiesUniTempo();
 		cam = Camera.main;
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(cam.pixelWidth, cam.pixelHeight, cam.nearClipPlane));
 		StartCoroutine(zombieWave());
@@ -56,7 +55,6 @@ public class deployZombies : MonoBehaviour {
 	}
 	
 	private CartesianCoord posSpawnZombie(double xMin, double xMax, double yMin, double yMax){
-		//if( xMin < xMax && yMin < yMax );
 		System.Random r = new System.Random();
 		double x0 = 0.5 * ( xMin + xMax );
 		double y0 = 0.5 * ( yMin + yMax );
@@ -69,8 +67,6 @@ public class deployZombies : MonoBehaviour {
 			y = r.NextDouble()*(1-(-1)) - 1; 	// Uy(-1., 1.)
 		}
 		CartesianCoord p = new CartesianCoord(x0 + a * x, y0 + b * y);
-
-		//System.out.println("(" + p.x + ", " + p.y + ")");
 		return p;
 	}
 	
@@ -94,7 +90,6 @@ public class deployZombies : MonoBehaviour {
 	// Update is called once per frame
     void Update() {
 		screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(cam.pixelWidth, cam.pixelHeight, cam.nearClipPlane));
-		//respawnTime = zombiesUniTempo();
     }
     
 }
