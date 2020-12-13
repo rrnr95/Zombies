@@ -9,14 +9,7 @@ public class deployZombies : MonoBehaviour {
 	public float respawnTime;
 	private Vector2 screenBounds;
 	private Camera cam;
-	private bool flag = false;
 
-	
-	public void changeFlag(){
-		/*cam = Camera.main;
-        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(cam.pixelWidth, cam.pixelHeight, cam.nearClipPlane));
-		StartCoroutine(zombieWave());*/
-	}
 	
 	// coordenadas de um ponto no plano: (x, y)
 	public class CartesianCoord{
@@ -47,7 +40,7 @@ public class deployZombies : MonoBehaviour {
 
 	private float zombiesUniTempo(){
 		System.Random r = new System.Random();
-		double a = Math.Exp(-1); 	// λ = 1
+		double a = Math.Exp(-0.80); 	// λ = 0.85
 		double b = 1;
 		int i;
 		for( i=0; b >= a; i++ ){

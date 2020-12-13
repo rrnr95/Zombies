@@ -124,7 +124,7 @@ MonoBehaviour:
   attackSpeed: 0.5
   moveSpeed: 3
   shootSpeed: 20
-  maxHealth: 20
+  maxHealth: 10
 --- !u!95 &-7174906097180345510
 Animator:
   serializedVersion: 3
