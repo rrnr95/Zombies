@@ -7,8 +7,6 @@ public class deployZombies : MonoBehaviour {
 
 	public GameObject zombiePrefab;
 	public float respawnTime;
-	private Vector2 screenBounds;
-	private Camera cam;
 
 	
 	// coordenadas de um ponto no plano: (x, y)
@@ -32,8 +30,6 @@ public class deployZombies : MonoBehaviour {
 
     // Start is called before the first frame update
     public void Start() {
-		cam = Camera.main;
-        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(cam.pixelWidth, cam.pixelHeight, cam.nearClipPlane));
 		StartCoroutine(zombieWave());
 	}
 
@@ -74,22 +70,18 @@ public class deployZombies : MonoBehaviour {
 	
 	private void spawnZombie(){
 		GameObject z = Instantiate(zombiePrefab) as GameObject;
-		CartesianCoord pos = posSpawnZombie(0, screenBounds.x, 0, screenBounds.y);
-		z.transform.position = new Vector2(pos.getX(), pos.getY());
+		CartesianCoord pos = posSpawnZombie(0.05f, 0.95f, 0.05f, 0.95f);
+		Vector3 vectorPos = new Vector3(pos.getX(), pos.getY(), 10.0f);
+		z.transform.position = Camera.main.ViewportToWorldPoint(vectorPos);
 	}
 	
 	IEnumerator zombieWave(){
 		while(true){
-			screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(cam.pixelWidth, cam.pixelHeight, cam.nearClipPlane));
 			respawnTime = zombiesUniTempo();
 			yield return new WaitForSeconds(respawnTime);
 			spawnZombie();
 		}
 	}
 	
-	// Update is called once per frame
-    void Update() {
-		screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(cam.pixelWidth, cam.pixelHeight, cam.nearClipPlane));
-    }
     
 }
