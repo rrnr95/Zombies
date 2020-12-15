@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     Animator anim;
 
-    public GameObject inventory;
     public GameObject sword;
     public GameObject lifeCounter;
 
@@ -26,7 +25,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         isFacingRight = true;
-        isInventory = false;
         health = maxHealth;
         rb = GetComponent<Rigidbody2D> ();
         anim = GetComponent<Animator> ();
